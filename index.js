@@ -4,8 +4,9 @@ const server = express();
 
 let users = [
     {
-        id: 1,
-        name: 'Justin Kuenzinger'
+        id:1,
+        name: 'Justin Kuenzinger',
+      
     }
 ]
 
@@ -29,8 +30,8 @@ server.get('/api/users', (req, res) => {
 })
 
 //now we are going to make a get request to request users by id
-server.get('/api/users/:id', (req, res) => {
-    const id = res.parmas.id;
+server.get("/api/users/:id", (req, res) => {
+    const id = req.params.id;
     const user = users.find(user => user.id == id)
     if(user){
         res.status(200).json(user);
